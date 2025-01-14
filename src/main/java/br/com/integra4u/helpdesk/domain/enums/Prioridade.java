@@ -1,4 +1,4 @@
-package br.com.integra4u.helpdesk.domains.enums;
+package br.com.integra4u.helpdesk.domain.enums;
 
 public enum Prioridade {
     BAIXA(0,"BAIXA"), MEDIA(1,"MEDIA"), ALTA(2,"ALTA");
@@ -27,13 +27,13 @@ public enum Prioridade {
         this.descricao = descricao;
     }
 
-    public static Prioridade getPerfil(Integer codigo) {
+    public static Prioridade getPrioridade(Integer codigo) {
         if (codigo == null) {
             return null;
         }
-        for (Prioridade perfil : Prioridade.values()) {
-            if (perfil.getCodigo().equals(codigo)) {
-                return perfil;
+        for (Prioridade prioridade : Prioridade.values()) {
+            if (prioridade.getCodigo().equals(codigo)) {
+                return prioridade;
             }
         }
         throw new IllegalArgumentException("Prioridade inválida");

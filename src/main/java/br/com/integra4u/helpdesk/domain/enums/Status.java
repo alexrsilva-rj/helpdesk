@@ -1,12 +1,12 @@
-package br.com.integra4u.helpdesk.domains.enums;
+package br.com.integra4u.helpdesk.domain.enums;
 
-public enum Perfil {
-    ADMIN(0,"ROLE_ADMN"), CLIENTE(1,"ROLE_CLIENTE"), TECNICO(2,"ROLE_TECNICO");
+public enum Status {
+    ABERTO(0,"ABERTO"), ANDAMENTO(1,"ANDAMENTO"), ENCERRADO(2,"ENCERRADO");
 
     Integer codigo;
     String descricao;
 
-    Perfil(Integer codigo, String descricao) {
+    Status(Integer codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
@@ -27,15 +27,15 @@ public enum Perfil {
         this.descricao = descricao;
     }
 
-    public static Perfil getPerfil(Integer codigo) {
+    public static Status getStatus(Integer codigo) {
         if (codigo == null) {
             return null;
         }
-        for (Perfil perfil : Perfil.values()) {
-            if (perfil.getCodigo().equals(codigo)) {
-                return perfil;
+        for (Status status : Status.values()) {
+            if (status.getCodigo().equals(codigo)) {
+                return status;
             }
         }
-        throw new IllegalArgumentException("Perfil inválido");
+        throw new IllegalArgumentException("Status inválido");
     }
 }
